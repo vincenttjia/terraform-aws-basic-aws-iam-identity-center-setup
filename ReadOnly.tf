@@ -30,7 +30,7 @@ resource "aws_ssoadmin_account_assignment" "ReadOnly" {
 }
 
 data "aws_identitystore_user" "ReadOnly" {
-  for_each          = { for user in var.super_admins : user => user }
+  for_each          = { for user in var.readonly_users : user => user }
   identity_store_id = local.identity_store_id
 
   alternate_identifier {

@@ -30,7 +30,7 @@ resource "aws_ssoadmin_account_assignment" "PowerUser" {
 }
 
 data "aws_identitystore_user" "PowerUser" {
-  for_each          = { for user in var.super_admins : user => user }
+  for_each          = { for user in var.power_users : user => user }
   identity_store_id = local.identity_store_id
 
   alternate_identifier {
